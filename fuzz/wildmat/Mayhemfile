@@ -1,0 +1,14 @@
+
+version: "1.1"
+project: transmisson
+target: wildmat-test
+baseimage: beta.internal.forallsecure.com:5000/transmission
+
+advanced_triage: true
+
+cmds:
+  - cmd: /transmission/fuzz/wildmat/fuzz_wildmat-instr
+    libfuzzer: true
+    asan: true
+
+  - cmd: /transmission/fuzz/wildmat/fuzz_wildmat-standalone @@
